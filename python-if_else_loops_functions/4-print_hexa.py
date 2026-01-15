@@ -2,6 +2,6 @@
 
 number = 0
 
-for i in range(98):
-    number = number + 1
+for i in range(0, 99):
     print("{} = {}".format(number, hex(number)))
+    number = number + 1
