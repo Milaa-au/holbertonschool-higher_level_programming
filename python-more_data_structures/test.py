@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-common_elements = __import__('3-common_elements').common_elements
+best_score = __import__('10-best_score').best_score
 
-set_1 = { "Python", "C", "Javascript" }
-set_2 = { "Bash", "C", "Ruby", "Perl" }
-c_set = common_elements(set_1, set_2)
-print(sorted(list(c_set)))
+a_dictionary = {'John': 12, 'Bob': 14, 'Mike': 14, 'Molly': 16, 'Adam': 10}
+best_key = best_score(a_dictionary)
+print("Best score: {}".format(best_key))
+
+best_key = best_score(None)
+print("Best score: {}".format(best_key))
