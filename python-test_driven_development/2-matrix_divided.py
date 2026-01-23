@@ -1,30 +1,52 @@
 #!/usr/bin/python3
-"""Module for printing a full name.
+"""Module for matrix division.
 
-This module provides a function that prints:
-"My name is <first name> <last name>"
-with type validation on both names.
+This module provides a function that divides all elements
+of a matrix by a given number and returns a new matrix.
 """
 
 
-def say_my_name(first_name, last_name=""):
-    """Print a person's full name.
+def matrix_divided(matrix, div):
+    """Divide all elements of a matrix.
 
     Args:
-        first_name: first name (must be a string).
-        last_name: last name (must be a string, optional).
+        matrix: list of lists of integers or floats.
+        div: number (int or float) used as divisor.
 
     Returns:
-        None
+        A new matrix with each element divided by div,
+        rounded to 2 decimal places.
 
     Raises:
-        TypeError: If first_name is not a string.
-        TypeError: If last_name is not a string.
+        TypeError: If matrix is not a list of lists of integers/floats.
+        TypeError: If each row of the matrix is not the same size.
+        TypeError: If div is not a number.
+        ZeroDivisionError: If div is equal to 0.
     """
-    if not isinstance(first_name, str):
-        raise TypeError("first_name must be a string")
+    error_msg = "matrix must be a matrix (list of lists) of integers/floats"
 
-    if not isinstance(last_name, str):
-        raise TypeError("last_name must be a string")
+    if not isinstance(matrix, list) or len(matrix) == 0:
+        raise TypeError(error_msg)
 
-    print("My name is {} {}".format(first_name, last_name))
+    row_length = None
+
+    for row in matrix:
+        if not isinstance(row, list) or len(row) == 0:
+            raise TypeError(error_msg)
+
+        if row_length is None:
+            row_length = len(row)
+        elif len(row) != row_length:
+            raise TypeError("Each row of the matrix must have the same size")
+
+        for element in row:
+            if not isinstance(element, (int, float)):
+                raise TypeError(error_msg)
+
+    if not isinstance(div, (int, float)):
+        raise TypeError("div must be a number")
+
+    if div == 0:
+        raise ZeroDivisionError("division by zero")
+
+    return [[round(element / div, 2) for element in row] for row in matrix]
