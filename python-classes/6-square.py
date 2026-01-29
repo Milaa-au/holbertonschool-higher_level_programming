@@ -4,8 +4,7 @@
 
 class Square:
 
-    def __init__(self, size=0, position=(0, 0)):
-        """
+    """
         Initializes a new Square instance.
 
         Args:
@@ -13,23 +12,22 @@ class Square:
                         greater than or equal to 0.
             position (tuple): A tuple of two positive integers representing
                               the position of the square.
-        """
+    """
+    def __init__(self, size=0, position=(0, 0)):
         self.size = size
         self.position = position
 
-    @property
-    def size(self):
-        """
+    """
         Retrieves the size of the square.
 
         Returns:
             int: The size of the square.
-        """
+    """
+    @property
+    def size(self):
         return self.__size
 
-    @size.setter
-    def size(self, value):
-        """
+    """
         Sets the size of the square.
 
         Args:
@@ -38,26 +36,26 @@ class Square:
         Raises:
             TypeError: If value is not an integer.
             ValueError: If value is less than 0.
-        """
+    """
+    @size.setter
+    def size(self, value):
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
 
-    @property
-    def position(self):
-        """
+    """
         Retrieves the position of the square.
 
         Returns:
             tuple: A tuple of two positive integers representing the position.
-        """
+    """
+    @property
+    def position(self):
         return self.__position
 
-    @position.setter
-    def position(self, value):
-        """
+    """
         Sets the position of the square.
 
         Args:
@@ -65,7 +63,9 @@ class Square:
 
         Raises:
             TypeError: If value is not a tuple of two positive integers.
-        """
+    """
+    @position.setter
+    def position(self, value):
         if (
             not isinstance(value, tuple)
             or len(value) != 2
@@ -74,22 +74,22 @@ class Square:
         ):
             raise TypeError("position must be a tuple of 2 positive integers")
 
-    def area(self):
-        """
+    """
         Calculates and returns the area of the square.
 
         Returns:
             int: The area of the square.
-        """
+    """
+    def area(self):
         return self.__size ** 2
 
-    def my_print(self):
-        """
+    """
         Prints the square using the character '#', taking into account
         the position of the square.
 
         If the size of the square is 0, an empty line is printed.
-        """
+    """
+    def my_print(self):
         if self.__size == 0:
             print()
             return
