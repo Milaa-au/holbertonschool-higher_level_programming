@@ -61,3 +61,52 @@ class Rectangle:
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
+            raise ValueError("height must be >= 0")
+        self.__height = value
+
+    def area(self):
+        """
+        Calculates the area of the rectangle
+
+        Returns:
+            int: area of the rectangle
+        """
+        return self.__width * self.__height
+
+    def perimeter(self):
+        """
+        Calculates the perimeter of the rectangle
+
+        Returns:
+            int: perimeter of the rectangle, or 0 if width or height is 0
+        """
+        if self.__width == 0 or self.__height == 0:
+            return 0
+        return 2 * (self.__width + self.__height)
+
+    def __str__(self):
+        """
+        Returns the string representation of the rectangle
+        using the symbol defined in print_symbol.
+        """
+        if self.__width == 0 or self.__height == 0:
+            return ""
+
+        symbol = getattr(self, "print_symbol", Rectangle.print_symbol)
+        if not isinstance(symbol, str):
+            symbol = str(symbol)
+
+        return "\n".join(symbol * self.__width for _ in range(self.__height))
+
+    def __repr__(self):
+        """
+        Returns the official string representation of the rectangle
+        """
+        return f"Rectangle({self.__width}, {self.__height})"
+
+    def __del__(self):
+        """
+        Message printed when a Rectangle instance is deleted
+        """
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
