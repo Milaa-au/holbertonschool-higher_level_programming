@@ -1,37 +1,68 @@
 >>> BaseGeometry = __import__('base_geometry').BaseGeometry
+>>> Rectangle = __import__('rectangle').Rectangle
+>>> Square = __import__('square').Square
+
+# Test BaseGeometry
 >>> bg = BaseGeometry()
 >>> bg
-<base_geometry.BaseGeometry object at 0x...>
-
+<base_geometry.BaseGeometry object at ...>
 >>> bg.area()
 Traceback (most recent call last):
     ...
 Exception: area() is not implemented
+>>> bg.integer_validator("size", 5)
+>>> bg.integer_validator("length", 1)
+>>> bg.integer_validator("width", 0)
+Traceback (most recent call last):
+    ...
+ValueError: width must be greater than 0
+>>> bg.integer_validator("depth", -3)
+Traceback (most recent call last):
+    ...
+ValueError: depth must be greater than 0
+>>> bg.integer_validator("height", "5")
+Traceback (most recent call last):
+    ...
+TypeError: height must be an integer
 
->>> bg.integer_validator("width", 10)
->>> bg.integer_validator("height", 1)
+# Test Rectangle
+>>> r = Rectangle(3, 4)
+>>> r
+<rectangle.Rectangle object at ...>
+>>> r.area()
+12
+>>> print(r)
+[Rectangle] 3/4
+>>> Rectangle(0, 4)
+Traceback (most recent call last):
+    ...
+ValueError: width must be greater than 0
+>>> Rectangle(3, -1)
+Traceback (most recent call last):
+    ...
+ValueError: height must be greater than 0
+>>> Rectangle(3, 2.5)
+Traceback (most recent call last):
+    ...
+TypeError: height must be an integer
 
->>> bg.integer_validator("size", 0)
+# Test Square
+>>> s = Square(5)
+>>> s
+<square.Square object at ...>
+>>> s.area()
+25
+>>> print(s)
+[Square] 5/5
+>>> Square(0)
 Traceback (most recent call last):
     ...
 ValueError: size must be greater than 0
-
->>> bg.integer_validator("radius", -5)
+>>> Square(-3)
 Traceback (most recent call last):
     ...
-ValueError: radius must be greater than 0
-
->>> bg.integer_validator("length", "5")
+ValueError: size must be greater than 0
+>>> Square("7")
 Traceback (most recent call last):
     ...
-TypeError: length must be an integer
-
->>> bg.integer_validator("value", 3.5)
-Traceback (most recent call last):
-    ...
-TypeError: value must be an integer
-
->>> bg.integer_validator("test", None)
-Traceback (most recent call last):
-    ...
-TypeError: test must be an integer
+TypeError: size must be an integer
