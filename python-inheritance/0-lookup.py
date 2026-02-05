@@ -3,4 +3,6 @@
 
 
 def lookup(obj):
-    return(dir(obj))
+    """Fonction qui renvoie la liste des méthodes d'une classe."""
+
+    return dir(obj)
