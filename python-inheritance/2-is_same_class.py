@@ -7,13 +7,7 @@ est une instance de la classe donnée.
 
 def is_same_class(obj, a_class):
     """
-    Vérifie si l'objet est une instance de la classe spécifiée.
-
-    Args:
-        obj: l'objet à tester
-        a_class: la classe à comparer
-
-    Returns:
-        True si obj est une instance de a_class, sinon False
+    Returns True if the object is exactly an instance of the specified class,
+    otherwise False.
     """
     return type(obj) is a_class
