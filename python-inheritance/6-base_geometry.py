@@ -18,4 +18,3 @@ class BaseGeometry:
         Doit être redéfinie dans les classes filles.
         """
         raise Exception("area() is not implemented")
-
