@@ -1,55 +1,21 @@
 #!/usr/bin/python3
 """
-Définition de classes de géométrie.
-
-Ce module contient la classe BaseGeometry et une classe Rectangle
-qui hérite de BaseGeometry.
+Defines a class Rectangle.
 """
-
-
-class BaseGeometry:
-    """
-    Classe de base pour la géométrie.
-    """
-
-    def area(self):
-        """
-        Méthode non implémentée.
-
-        Doit être redéfinie dans les classes filles.
-        """
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        """
-        Valide que la valeur est un entier strictement positif.
-
-        Args:
-            name (str): nom du paramètre
-            value (int): valeur à valider
-
-        Raises:
-            TypeError: si value n'est pas un entier
-            ValueError: si value est inférieur ou égal à 0
-        """
-        if type(value) is not int:
-            raise TypeError(f"{name} must be an integer")
-        if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
     """
-    Classe Rectangle qui hérite de BaseGeometry.
+    A class Rectangle that inherits from BaseGeometry
+    based on 7-base_geometry.
     """
-
     def __init__(self, width, height):
         """
-        Initialise un rectangle avec une largeur et une hauteur.
-
-        Args:
-            width (int): largeur du rectangle
-            height (int): hauteur du rectangle
+        Instantiation with width and height.
+        width and height must be private. No getter or setter.
+        width and height must be positive integers,
+            validated by integer_validator.
         """
         self.integer_validator("width", width)
         self.integer_validator("height", height)
