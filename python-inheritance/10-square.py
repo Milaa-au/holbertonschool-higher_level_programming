@@ -1,91 +1,27 @@
 #!/usr/bin/python3
 """
-Définition de classes de géométrie.
-
-Ce module contient la classe BaseGeometry et une classe Rectangle
-qui hérite de BaseGeometry.
+Defines a class Square.
 """
-
-
-class BaseGeometry:
-    """
-    Classe de base pour la géométrie.
-    """
-
-    def area(self):
-        """
-        Méthode non implémentée.
-
-        Doit être redéfinie dans les classes filles.
-        """
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        """
-        Valide que la valeur est un entier strictement positif.
-
-        Args:
-            name (str): nom du paramètre
-            value (int): valeur à valider
-
-        Raises:
-            TypeError: si value n'est pas un entier
-            ValueError: si value est inférieur ou égal à 0
-        """
-        if type(value) is not int:
-            raise TypeError(f"{name} must be an integer")
-        if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
-
-
-class Rectangle(BaseGeometry):
-    """
-    Classe Rectangle qui hérite de BaseGeometry.
-    """
-
-    def __init__(self, width, height):
-        """
-        Initialise un rectangle avec une largeur et une hauteur.
-
-        Args:
-            width (int): largeur du rectangle
-            height (int): hauteur du rectangle
-        """
-        self.integer_validator("width", width)
-        self.integer_validator("height", height)
-        self.__width = width
-        self.__height = height
-
-    def area(self):
-        """
-        Calcule et retourne l'aire du rectangle.
-        """
-        return self.__width * self.__height
-
-    def __str__(self):
-        """
-        Retourne une représentation lisible du rectangle.
-        """
-        return f"[Rectangle] {self.__width}/{self.__height}"
+Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
     """
-    Classe Square qui hérite de Rectangle.
+    A class Square that inherits from Rectangle (9-rectangle).
     """
-
     def __init__(self, size):
         """
-        Initialise un carré avec une taille donnée.
-
-        Args:
-            size (int): taille du côté du carré
+        Instantiation with size.
+        size must be private. No getter or setter.
+        size must be a positive integer,
+            validated by integer_validator.
         """
         self.integer_validator("size", size)
+        self.__size = size
         super().__init__(size, size)
 
     def area(self):
         """
-        Calcule et retourne l'aire du carré.
+        Returns the square area.
         """
-        return self._Rectangle__width * self._Rectangle__height
+        return self.__size ** 2
