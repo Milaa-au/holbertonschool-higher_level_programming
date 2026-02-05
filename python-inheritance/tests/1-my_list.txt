@@ -28,5 +28,5 @@
 [-10000000000, -7, 5, 10000000000]
 >>> my_list = MyList(None)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+    ...
 TypeError: 'NoneType' object is not iterable
