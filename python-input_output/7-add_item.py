@@ -4,16 +4,14 @@ Ajouter des arguments à une liste et
 les enregistrer dans un fichier JSON.
 """
 import sys
-from 5-save_to_json_file import save_to_json_file
-from 6-load_from_json_file import load_from_json_file
+import os
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-filename = "add_item.json"
-
-try:
-    items = load_from_json_file(filename)
-except FileNotFoundError:
-    items = []
-
-items.extend(sys.argv[1:])
-
-save_to_json_file(items, filename)
+list_args = sys.argv[1:]
+if os.path.exists("add_item.json"):
+    files = load_from_json_file("add_item.json")
+else:
+    files = []
+files.extend(list_args)
+save_to_json_file(files, "add_item.json")
