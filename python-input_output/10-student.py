@@ -4,6 +4,7 @@ Définit une classe Student avec
 méthodes pour gérer ses attributs en JSON.
 """
 
+
 class Student:
     """
     Définit une classe Student avec
