@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Fonction qui écrit un objet dans un fichier texte,
-en utilisant une représentation JSON.
+Définit une classe Student avec
+méthode pour obtenir ses attributs.
 """
 
 
@@ -10,6 +10,7 @@ class Student:
         self.first_name = first_name
         self.age = age
         self.last_name = last_name
+
     def to_json(self):
-        """A modifier"""
+        """Retourner le dictionnaire des attributs de l'étudiant."""
         return self.__dict__
