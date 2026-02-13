@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 """
-fonction qui renvoie un objet (structure
-de données Python) représenté par une chaîne JSON
+Définit une fonction qui
+convertit une chaîne JSON en objet Python.
 """
 
 
 def from_json_string(my_str):
-    """
-    A Modifier plus tard.
-    """
+    """Convertir une chaîne JSON en objet Python."""
     return json.loads(my_str)
