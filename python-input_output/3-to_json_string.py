@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 """
-Fonction qui écrit une chaîne a la fin d'un fichier
-et qui renvoie le nombre de caractères ajoutés. 
+Définit une fonction qui
+convertit un objet en chaîne JSON.
 """
 
 
-def to_json_string(my_obj) :
-    """
-    A Modifier plus tard.
-    """
+def to_json_string(my_obj):
+    """Convertir un objet en chaîne de caractères."""
     return str(my_obj)
