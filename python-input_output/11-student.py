@@ -11,17 +11,19 @@ class Student:
         self.age = age
         self.last_name = last_name
 
-    def to_json(self):
-        """Retourner un dictionnaire des
-        attributs sélectionnés de l'étudiant."""
+    def to_json(self, attrs=None):
+        """
+        ok ok
+        """
         obj = self.__dict__.copy()
 
         if isinstance(attrs, list) and all(isinstance(a, str) for a in attrs):
             filtered = {}
             for attr in attrs:
-                if attr in obj:  # <-- le if explicite que tu voulais
+                if attr in obj:  # only add existing attributes
                     filtered[attr] = obj[attr]
             return filtered
+
         return obj
 
     def reload_from_json(self, json):
