@@ -19,7 +19,7 @@ class Student:
         """
         Retourne un dictionnaire
         des attributs sélectionnés de l'étudiant.
-        
+
         Args:
             attrs (list, optional): liste
             d'attributs à inclure. Si None,
