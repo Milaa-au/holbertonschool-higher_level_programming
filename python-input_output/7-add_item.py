@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Fonction qui écrit un objet dans un fichier texte,
-en utilisant une représentation JSON.
+Ajouter des arguments à une liste et
+les enregistrer dans un fichier JSON.
 """
 import sys
 from 5-save_to_json_file import save_to_json_file

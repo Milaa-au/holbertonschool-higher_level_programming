@@ -1,11 +1,15 @@
 #!/usr/bin/python3
 """
-Fonction qui écrit un objet dans un fichier texte,
-en utilisant une représentation JSON.
+Définit une fonction qui lit
+un objet depuis un fichier JSON.
 """
-import json 
+import json
 
 
 def load_from_json_file(filename):
+    """
+    Lire un objet Python
+    depuis un fichier au format JSON.
+    """
     with open(filename, "r", encoding="utf-8") as f:
         return json.load(f)

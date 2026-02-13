@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """
-Fonction qui écrit un objet dans un fichier texte,
-en utilisant une représentation JSON.
+Définit une fonction qui retourne
+le dictionnaire descriptif d'un objet.
 """
 
+
 def class_to_json(obj):
-    """A modifier"""
+    """Retourner le dictionnaire des attributs d'un objet."""
     return obj.__dict__
