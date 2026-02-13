@@ -14,11 +14,15 @@ class Student:
     def to_json(self):
         """Retourner un dictionnaire des
         attributs sélectionnés de l'étudiant."""
-        new_dict = {}
-        for attr in attrs:
-            if attr in self.__dict__:
-                new_dict[attr] = self.__dict__[attr]
-        return new_dict
+        obj = self.__dict__.copy()
+
+        if isinstance(attrs, list) and all(isinstance(a, str) for a in attrs):
+            filtered = {}
+            for attr in attrs:
+                if attr in obj:  # <-- le if explicite que tu voulais
+                    filtered[attr] = obj[attr]
+            return filtered
+        return obj
 
     def reload_from_json(self, json):
         """Mettre à jour les attributs de
