@@ -15,9 +15,11 @@ class Student:
             retourne tous les attributs.
         """
         obj = self.__dict__.copy()
-        if attrs is None:
-            return obj
 
-        if type(attrs) is list and all(isinstance(a, str) for a in attrs):
-            return {key: obj[key] for key in attrs if key in obj}
+        if isinstance(attrs, list) and all(isinstance(a, str) for a in attrs):
+            filtered = {}
+            for attr in attrs:
+                if attr in obj:  # <-- le if explicite que tu voulais
+                    filtered[attr] = obj[attr]
+            return filtered
         return obj
