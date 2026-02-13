@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Fonction qui écrit une chaîne a la fin d'un fichier
-et qui renvoie le nombre de caractères ajoutés. 
+et qui renvoie le nombre de caractères ajoutés.
 """
 
 
