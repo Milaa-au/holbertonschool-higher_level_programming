@@ -3,6 +3,7 @@
 Définit une fonction qui
 convertit un objet en chaîne JSON.
 """
+import json
 
 
 def to_json_string(my_obj):
