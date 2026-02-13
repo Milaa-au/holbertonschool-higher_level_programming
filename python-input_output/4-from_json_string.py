@@ -3,6 +3,7 @@
 Définit une fonction qui
 convertit une chaîne JSON en objet Python.
 """
+import json
 
 
 def from_json_string(my_str):
