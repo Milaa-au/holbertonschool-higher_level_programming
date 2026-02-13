@@ -12,8 +12,16 @@ class Student:
     def to_json(self):
         """Retourner un dictionnaire des
         attributs sélectionnés de l'étudiant."""
-        new_dict = {}
-        for attr in attrs:
-            if attr in self.__dict__:
-                new_dict[attr] = self.__dict__[attr]
-        return new_dict
+        obj = self.__dict__.copy()
+        if type(attrs) is list:
+            for item in attrs:
+                if type(item) is not str:
+                    return obj
+            d_list = {}
+            for iatr in range(len(attrs)):
+                for satr in obj:
+                    if attrs[iatr] == satr:
+                        d_list[satr] = obj[satr]
+            return d_list
+        return obj
+
