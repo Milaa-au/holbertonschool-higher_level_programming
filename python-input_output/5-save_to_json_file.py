@@ -11,5 +11,5 @@ def save_to_json_file(my_obj, filename):
     Écrire un objet Python dans un
     fichier en utilisant le format JSON.
     """
-    with open("data.json", "w", encoding="utf-8") as f:
-        json.dump(my_obj, f)
+    with open(filename, 'w', encoding="utf-8") as f:
+        f.write(json.dumps(my_obj))
