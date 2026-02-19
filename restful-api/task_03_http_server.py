@@ -15,23 +15,23 @@ class Simpleapi(http.server.BaseHTTPRequestHandler):
         Cette fonction va envoyer les réponses selon
         les différents chemins qui prends.
         """
-        if self.path == '/':
+        if self.path == "/":
             self.send_response(200)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(b"Hello, this is a simple API!")
-        elif self.path == '/data':
+        elif self.path == "/data":
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
             dataset = {"name": "John", "age": 30, "city": "New York"}
             self.wfile.write(json.dumps(dataset).encode("utf-8"))
-        elif self.path == '/status':
+        elif self.path == "/status":
             self.send_response(200)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(b"OK")
-        elif self.path == '/info':
+        elif self.path == "/info":
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
