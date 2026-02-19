@@ -2,7 +2,7 @@
 
 import json
 import http.server
-import socketserver
+from http.server import HTTPServer
 
 
 class Simpleapi(http.server.BaseHTTPRequestHandler):
@@ -39,7 +39,7 @@ class Simpleapi(http.server.BaseHTTPRequestHandler):
                         "A simple API built with http.server"}
             self.wfile.write(json.dumps(datainfo).encode("utf-8"))
         else:
-            self.send_response(200)
+            self.send_response(404)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(b"Endpoint not found")
