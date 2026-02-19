@@ -1,14 +1,20 @@
 #!/usr/bin/python3
 
-"""
-"""
 import json
 import http.server
 import socketserver
 
 
 class Simpleapi(http.server.BaseHTTPRequestHandler):
+    """
+    Cette class est un gestionnaire de requete. Elle
+    hérite de http.server...
+    """
     def do_GET(self):
+        """
+        Cette fonction va envoyer les réponses selon
+        les différents chemins qui prends.
+        """
         if self.path == '/':
             self.send_response(200)
             self.send_header('Content-type', 'text/plain')
@@ -26,11 +32,11 @@ class Simpleapi(http.server.BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b"OK")
         elif self.path == '/info':
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
             datainfo = {"version": "1.0", "description":
                         "A simple API built with http.server"}
-            self.send_response(200)
-            self.send_header('Content-type', 'text/plain')
-            self.end_headers()
             self.wfile.write(json.dumps(datainfo).encode("utf-8"))
         else:
             self.send_response(200)
@@ -39,7 +45,8 @@ class Simpleapi(http.server.BaseHTTPRequestHandler):
             self.wfile.write(b"Endpoint not found")
 
 
-PORT = 8000
-
-with socketserver.TCPServer(("", PORT), Simpleapi) as httpd:
-    httpd.serve_forever()
+if __name__ == "__main__":
+    PORT = 8000
+    server = HTTPServer(("", PORT), Simpleapi):
+    print(f"Serveur lancé sur le port {PORT}")
+    server.serve_forever()
