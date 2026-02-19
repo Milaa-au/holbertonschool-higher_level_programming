@@ -43,11 +43,11 @@ class Simpleapi(http.server.BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
-            self.wfile.write(b"Endpoint not found")
+            self.wfile.write(b"404 not found")
 
 
 if __name__ == "__main__":
     PORT = 8000
     server = HTTPServer(('', PORT), Simpleapi):
-    print(f"Serveur lancé sur le port {PORT}")
+    print(f"Server running on port {PORT}")
     server.serve_forever()
