@@ -25,7 +25,7 @@ class Simpleapi(http.server.BaseHTTPRequestHandler):
             self.send_header('Content-type', 'application/json')
             self.end_headers()
             dataset = {"name": "John", "age": 30, "city": "New York"}
-            self.wfile.write(json.dumps(dataset).encode("utf-8"))
+            self.wfile.write(json.dumps(dataset).encode('utf-8'))
         elif self.path == "/status":
             self.send_response(200)
             self.send_header('Content-type', 'text/plain')
@@ -38,7 +38,7 @@ class Simpleapi(http.server.BaseHTTPRequestHandler):
             datainfo = {
                 "version": "1.0",
                 "description": "A simple API built with http.server"}
-            self.wfile.write(json.dumps(datainfo).encode("utf-8"))
+            self.wfile.write(json.dumps(datainfo).encode('utf-8'))
         else:
             self.send_response(404)
             self.send_header('Content-type', 'text/plain')
