@@ -52,6 +52,6 @@ class Simpleapi(http.server.BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     PORT = 8000
-    server = HTTPServer(('', PORT), Simpleapi):
+    server = HTTPServer(('', PORT), Simpleapi)
     print(f"Server running on port {PORT}")
     server.serve_forever()
