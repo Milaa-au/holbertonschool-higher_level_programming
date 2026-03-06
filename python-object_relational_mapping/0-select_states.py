@@ -11,17 +11,16 @@ if __name__ == "__main__":
         host="localhost",
         port=3306,
         user=sys.argv[1],
-        pwd=sys.argv[2],
+        passwd=sys.argv[2],
         db=sys.argv[3]
     )
 
     cur = db.cursor()
-    cur.execute("SELECT id, name FROM states ORDER BY states.id ASC")
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
 
-    states = cur.fetchall()
-
-    for state in states:
-        print(state)
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
 
     cur.close()
     db.close()
