@@ -6,7 +6,7 @@ import MySQLdb
 import sys
 
 
-def get_states():
+if __name__ == "__main__":
     """fonction that lists all states from the database hbtn_0e_0_usa"""
 
     db = MySQLdb.connect(host="localhost",
@@ -19,12 +19,9 @@ def get_states():
 
     cur.execute("SELECT * FROM states ORDER BY id ASC")
 
-    rows = cur.fetchall()
-    for i in rows:
+    sts = cur.fetchall()
+    for i in sts:
         print(i)
 
     cur.close()
     db.close()
-
-if __name__ == "__main__":
-    get_states()
