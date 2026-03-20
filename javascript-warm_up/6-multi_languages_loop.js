@@ -6,6 +6,6 @@ const myArray = [
     'JavaScript is amazing'
   ];
   
-  for (let i = 0; i < myArray.length; i++) {
+for (let i = 0; i < myArray.length; i++) {
     console.log(myArray[i]);
   }
